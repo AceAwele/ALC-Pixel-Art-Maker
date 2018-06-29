@@ -2,13 +2,12 @@
 * @description creates grid
 */
 function makeGrid() {
-  console.log("create grid")
-    
-  let table, cell, gridHeight, gridWidth, rows;
+ 
+let table, cell, gridHeight, gridWidth, rows;
   
   table = $('#pixel_canvas');
-  gridHeight = $('#inputHeight').val();
-  gridWidth = $('#inputWidth').val();
+  gridHeight = $('#inputHeight').val(); // TODO: store the input value for height
+  gridWidth = $('#inputWidth').val();   // TODO: store the input value for width
   
   table.children().remove()
   
@@ -24,10 +23,10 @@ function makeGrid() {
   
   cell = table.find('td');
   
-  cell.click(function() { // TODO: change background color
-  console.log("put color");
+  cell.click(function() { // TODO: change cell background color
+  
     let color;
-    color = $("#colorPicker").val();
+    color = $('#colorPicker').val(); // TODO: store the value of selected color
     $(this).attr('bgcolor', color);
   });
   
@@ -38,8 +37,8 @@ let submitButton;
 
 submitButton = $('input[type="submit"]')
 
-submitButton.click(function(event) {
-  event.preventDefault();
+submitButton.click(function(evt) {
+  evt.preventDefault();
   // prevent creating default grid
   makeGrid();
 });
